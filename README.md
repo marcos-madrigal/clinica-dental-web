@@ -1,8 +1,8 @@
-###Clínica Dental Noroeste — Sistema Web de Gestión y Reserva de Citas
+### Clínica Dental Noroeste — Sistema Web de Gestión y Reserva de Citas
 
 Aplicación web *full-stack* desarrollada como prototipo funcional para la gestión de citas online de una clínica dental. Permite a los pacientes consultar disponibilidad en tiempo real por fecha y reservar consulta, mientras ofrece al personal de la clínica un panel de administración conectado a **PostgreSQL (Supabase)** para visualizar la agenda diaria.
 
-> **Estado del Proyecto:** Prototipo Funcional (MVP en desarrollo) — El flujo de reserva de citas, validación de franjas horarias disponibles y sincronización con Supabase están operativos. La capa de autenticación criptográfica y políticas avanzadas de seguridad forman parte de la siguiente fase de desarrollo (ver sección *Hoja de Ruta*).
+> **Estado del Proyecto:** Prototipo Funcional (MVP en desarrollo) — El flujo de reserva de citas, validación de franjas horarias disponibles y sincronización con Supabase están operativos. La capa de autenticación criptográfica y políticas avanzadas de seguridad forman parte de la siguiente fase de desarrollo (ver sección *Seguridad y Hoja de Ruta*).
 
 ---
 
