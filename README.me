@@ -1,0 +1,68 @@
+###Clínica Dental Noroeste — Sistema Web de Gestión y Reserva de Citas
+
+Aplicación web *full-stack* desarrollada como prototipo funcional para la gestión de citas online de una clínica dental. Permite a los pacientes consultar disponibilidad en tiempo real por fecha y reservar consulta, mientras ofrece al personal de la clínica un panel de administración conectado a **PostgreSQL (Supabase)** para visualizar la agenda diaria.
+
+> **Estado del Proyecto:** Prototipo Funcional (MVP en desarrollo) — El flujo de reserva de citas, validación de franjas horarias disponibles y sincronización con Supabase están operativos. La capa de autenticación criptográfica y políticas avanzadas de seguridad forman parte de la siguiente fase de desarrollo (ver sección *Hoja de Ruta*).
+
+---
+
+### Características Principales
+- **Reserva de Citas en Tiempo Real (`index.html` + `reservas.js`):**
+  - Selección interactiva de fecha con bloqueo de días pasados y filtrado dinámico de franjas horarias libres (mañana y tarde) consultando directamente las citas ya registradas en la base de datos.
+  - Registro o actualización automática de fichas de pacientes (`upsert` por correo electrónico) y vinculación relacional con la cita en PostgreSQL.
+- **Panel de Administración (`admin.html` + `admin.js`):**
+  - Vista unificada (`vista_agenda`) que cruza los datos de citas y pacientes para mostrar fecha, hora, nombre completo, teléfono de contacto directo, motivo de consulta y estado.
+- **Arquitectura Serverless con Supabase:**
+  - Persistencia en PostgreSQL gestionada mediante el SDK oficial de Supabase (`@supabase/supabase-js`) sin necesidad de mantener un servidor backend intermedio.
+
+---
+
+### Stack Tecnológico
+- **Frontend:** HTML5, CSS3 (Flexbox, diseño responsivo y modales), Vanilla JavaScript (ES6+)
+- **Base de Datos y BaaS:** Supabase (PostgreSQL, Vistas SQL y API REST automática)
+
+---
+
+### Estructura del Proyecto
+```text
+Clinica/
+├── index.html      # Página principal, servicios, equipo médico y modal de reservas
+├── admin.html      # Interfaz del panel de administración de agenda
+├── reservas.js     # Lógica de disponibilidad, validación de formulario y acceso admin
+├── admin.js        # Consulta a la vista de agenda y renderizado de tabla en Supabase
+├── styles.css      # Estilos visuales, tarjetas, modales y tabla de administración
+└── .gitignore      # Exclusión de volcados de base de datos y backups locales
+```
+
+---
+
+### Acceso al Panel de Administración (Nota sobre el Prototipo)
+Para acceder al panel de gestión de citas durante las pruebas del prototipo:
+1. Haz clic en el enlace **Admin** en la barra de navegación superior de `index.html`.
+2. Introduce la contraseña de prueba configurada en el prototipo: **`1234`**.
+
+**¿Por qué está implementado así actualmente?**
+Este proyecto nació como un prototipo rápido para validar el flujo de reservas y el modelo de datos relacional (`pacientes`, `citas` y `vista_agenda`) en Supabase. Por ese motivo, la validación de acceso al panel utiliza actualmente una comprobación básica en el cliente (`verificarAdmin()` en `reservas.js`) en lugar de un sistema completo de autenticación y criptografía, quedando la securización prevista para antes del paso a producción.
+
+---
+
+### Ejecución en Local
+
+1. **Clona el repositorio:**
+```bash
+git clone https://github.com/marcos-madrigal/clinica-dental-web.git
+cd clinica-dental-web
+```
+
+2. **Abre la aplicación:**
+   * Como es una aplicación web estática conectada a Supabase mediante CDN, puedes abrir `index.html` directamente en tu navegador o servir la carpeta con una extensión como **Live Server** en VS Code (o `npx serve`).
+
+---
+
+### Hoja de Ruta (Próximos Pasos hacia Producción)
+- [x] Diseño de interfaz clínica, secciones informativas y modal de reservas
+- [x] Modelado relacional en PostgreSQL (`pacientes`, `citas` y vista `vista_agenda`)
+- [x] Cálculo en tiempo real de franjas horarias disponibles
+- [ ] **Autenticación y Criptografía:** Sustituir el acceso de prototipo por **Supabase Auth** (login con hash seguro de contraseñas y tokens JWT) y políticas estrictas de **Row Level Security (RLS)** en PostgreSQL.
+- [ ] **Gestión de Estados en Admin:** Permitir confirmar, cancelar o reprogramar citas directamente desde `admin.html`.
+- [ ] **Sanitización DOM:** Migrar el renderizado de filas en `admin.js` de `innerHTML` a nodos DOM seguros (`textContent`) para prevenir inyección XSS.

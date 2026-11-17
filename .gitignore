@@ -1,0 +1,12 @@
+﻿# Backups y volcados de base de datos / Storage (CRÍTICO)
+*.backup
+*.backup.gz
+*.sql
+*.dump
+*.zip
+*.gz
+
+# Variables de entorno y archivos del sistema
+.env
+.DS_Store
+Thumbs.db

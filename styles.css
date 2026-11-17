@@ -1,0 +1,349 @@
+/* 1. Reset básico: Los navegadores añaden márgenes por defecto. Esto los elimina para tener control total. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Estilos Generales (El "nodo raíz" visual) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía limpia */
+    background-color: #f4f7f6; /* Un fondo gris muy claro, menos agresivo que el blanco puro */
+    color: #333333; /* Texto gris oscuro (el negro puro cansa la vista) */
+}
+
+/* 3. Cabecera (Header) */
+header {
+    background-color: #0056b3; /* Azul "clínico" */
+    color: white;
+    padding: 20px 40px;
+    display: flex; /* Flexbox: El sistema de CSS para alinear elementos fácilmente */
+    justify-content: space-between; /* Empuja el logo a la izquierda y el menú a la derecha */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* 4. Menú de navegación */
+header ul {
+    list-style: none; /* Quita los puntos feos de la lista */
+    display: flex;
+    gap: 30px; /* Separación entre los enlaces */
+}
+
+header a {
+    color: white;
+    text-decoration: none; /* Quita el subrayado azul por defecto */
+    font-weight: bold;
+    transition: color 0.3s; /* Animación suave para el hover */
+}
+
+header a:hover {
+    color: #a3cfff; /* Cambia de color al pasar el ratón */
+}
+
+/* 5. Sección principal (Hero) */
+#inicio {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: white;
+}
+
+#inicio h2 {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+/* 6. El Botón de Reserva */
+button {
+    background-color: #28a745; /* Verde que invita a la acción */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-top: 25px;
+    cursor: pointer; /* Convierte el ratón en la "manita" */
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+}
+
+/* 7. Pie de página */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+/* 8. Sección de Servicios */
+#servicios {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #f4f7f6; /* Mantiene la consistencia con el body */
+}
+
+#servicios h2 {
+    color: #0056b3;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+}
+
+/* Usamos Flexbox de nuevo para poner las tarjetas en fila */
+.contenedor-servicios {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Si la pantalla es pequeña, las tarjetas bajarán a la siguiente línea */
+}
+
+/* El diseño de la clase "instanciada" */
+.tarjeta-servicio {
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra difuminada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Prepara la animación */
+}
+
+/* Efecto al pasar el ratón */
+.tarjeta-servicio:hover {
+    transform: translateY(-10px); /* Hace que la tarjeta "flote" 10 píxeles hacia arriba */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Refuerza la sombra al flotar */
+}
+
+.tarjeta-servicio h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.tarjeta-servicio p {
+    color: #666;
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+}
+/* 9. Sección del Equipo Médico */
+#equipo {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: white; /* Alternamos el fondo para separar secciones */
+}
+
+#equipo h2 {
+    color: #0056b3;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+}
+
+.contenedor-doctores {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.tarjeta-doctor {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.foto-placeholder {
+    font-size: 4rem; /* Hacemos el emoji muy grande temporalmente */
+    background-color: #e2e8f0;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%; /* Lo convierte en un círculo perfecto */
+    margin: 0 auto 20px auto;
+}
+
+.tarjeta-doctor h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.tarjeta-doctor p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* 10. Actualización del Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 0;
+}
+
+.info-contacto p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #a0aec0;
+}
+/* 11. Sección de Reservas */
+#reservas {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #eaf1f8; /* Un azul muy clarito para destacar la zona */
+}
+
+.contenedor-horas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para los botones generados por JavaScript */
+.boton-hora {
+    background-color: white;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.boton-hora:hover {
+    background-color: #0056b3;
+    color: white;
+    transform: scale(1.05); /* Hace que el botón crezca un poquito al pasar el ratón */
+}
+/* 12. Estilos del Selector de Fecha */
+.selector-calendario {
+    margin: 20px auto 30px auto;
+}
+
+#input-fecha {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    color: #2c3e50;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#input-fecha:focus {
+    border-color: #0056b3;
+}
+/* 13. Modal de Reserva */
+.modal-oculto {
+    display: none; /* Oculto por defecto */
+}
+
+.modal-visible {
+    display: flex; /* Se muestra cuando JavaScript cambia la clase */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    z-index: 1000; /* Asegura que flote por encima de todo */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #666;
+}
+
+#formulario-cita {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#formulario-cita input, #formulario-cita textarea {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.boton-confirmar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.2s;
+}
+
+.boton-confirmar:hover {
+    background-color: #218838;
+}
+/* 14. Panel de Administración */
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-admin th, .tabla-admin td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-admin th {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+
+.tabla-admin tr:hover {
+    background-color: #f8fafc;
+}
+
+.estado-pendiente {
+    background-color: #fef08a;
+    color: #854d0e;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}

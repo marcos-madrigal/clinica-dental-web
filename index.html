@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental | Inicio</title>
+    <!-- Esta línea conecta el HTML con tu archivo de estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+<header>
+        <h1>Clínica Dental Noroeste</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#equipo">Doctores</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <!-- NUEVO: Botón de acceso al panel de administración -->
+                <li><a href="#" onclick="verificarAdmin()">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- MAIN: El contenido principal y único de esta página -->
+    <main>
+        
+        <!-- Sección de Bienvenida (Hero) -->
+        <section id="inicio">
+            <h2>Tu sonrisa en las mejores manos</h2>
+            <p>Especialistas en ortodoncia, implantes y estética dental.</p>
+            <button onclick="document.getElementById('reservas').scrollIntoView({ behavior: 'smooth' });">Reserva tu cita</button>
+        </section>
+        <!-- Sección de Servicios -->
+        <section id="servicios">
+            <h2>Nuestros Tratamientos</h2>
+            
+            <!-- Este contenedor agrupará todas las tarjetas -->
+            <div class="contenedor-servicios">
+                
+                <!-- Tarjeta 1 -->
+                <div class="tarjeta-servicio">
+                    <h3>Limpieza Dental</h3>
+                    <p>Higiene profunda con ultrasonidos para prevenir caries y enfermedades periodontales.</p>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="tarjeta-servicio">
+                    <h3>Revisiones Mensuales</h3>
+                    <p>Control preventivo exhaustivo para mantener tu salud bucodental siempre perfecta.</p>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="tarjeta-servicio">
+                    <h3>Invisalign</h3>
+                    <p>Ortodoncia invisible, cómoda y estéticamente impecable. Alinea tu sonrisa sin brackets.</p>
+                </div>
+
+            </div>
+        </section>
+        <!-- Sección del Equipo Médico -->
+        <section id="equipo">
+            <h2>Nuestro Equipo Médico</h2>
+            <div class="contenedor-doctores">
+                
+                <!-- Doctor 1 -->
+                <div class="tarjeta-doctor">
+                    <div class="foto-placeholder">👩‍⚕️</div>
+                    <h3>Dra. Nombre Apellido</h3>
+                    <p>Especialista en Ortodoncia y Odontopediatría.</p>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="tarjeta-doctor">
+                    <div class="foto-placeholder">👨‍⚕️</div>
+                    <h3>Dr. Nombre Apellido</h3>
+                    <p>Experto en Implantología y Cirugía Oral.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Aquí añadiremos más adelante la sección de doctores y servicios -->
+
+    <!-- Sección de Reservas -->
+        <section id="reservas">
+            <h2>Reserva tu cita</h2>
+            <p>Selecciona una hora disponible para hoy:</p>
+            <!-- NUEVO: Selector de fecha (Calendario) -->
+            <div class="selector-calendario">
+                <input type="date" id="input-fecha">
+            </div>
+            
+            <!-- Este div está vacío, JavaScript lo llenará -->
+            <div id="contenedor-horas" class="contenedor-horas"></div>
+            <!-- NUEVO: Modal de Reserva Oculto -->
+            <div id="modal-reserva" class="modal-oculto">
+                <div class="modal-contenido">
+                    <span class="cerrar-modal" id="cerrar-modal">&times;</span>
+                    <h3>Confirmar Cita</h3>
+                    <p id="texto-fecha-cita"></p>
+                    
+                    <form id="formulario-cita">
+                        <input type="text" id="nombre" placeholder="Nombre" required>
+                        <input type="text" id="apellidos" placeholder="Apellidos" required>
+                        <input type="email" id="email" placeholder="Correo electrónico" required>
+                        <input type="tel" id="telefono" placeholder="Teléfono" required>
+                        <textarea id="motivo" placeholder="Motivo de la consulta (ej. Limpieza, Dolor...)" rows="3"></textarea>
+                        
+                        <button type="submit" class="boton-confirmar">Reservar y Guardar</button>
+                    </form>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- FOOTER: El pie de página con datos de contacto -->
+    <!-- FOOTER: Datos de contacto reales -->
+    <footer>
+        <div class="info-contacto">
+            <p>📍 <strong>Dirección:</strong> C. Camilo José Cela, 9, 28232 Las Rozas de Madrid</p>
+            <p>📞 <strong>Teléfono:</strong> +34 916 40 56 36</p>
+            <p>🕒 <strong>Horarios:</strong> Lunes a Viernes de 10:00 a 14:00 y de 16:00 a 20:00</p>
+        </div>
+        <p class="copyright">© 2026 Clínica Dental Noroeste. Todos los derechos reservados.</p>
+    </footer>
+
+<!-- Carga la librería de Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Carga la lógica de reservas -->
+    <script src="reservas.js"></script>
+</body>
+</html>
