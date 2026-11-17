@@ -1,6 +1,6 @@
 // 1. CONEXIÓN A SUPABASE
-const supabaseUrl = 'https://zaybxlotytxhcaknyfhz.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpheWJ4bG90eXR4aGNha255Zmh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3MjU1NDksImV4cCI6MjEwMDMwMTU0OX0.37rH2OjcB_b3Q86aB8VeedSJsrxcg_qGT10WQGm4dow';
+const supabaseUrl = 'https://sgnbqjpefyjbfgkavqer.supabase.co';
+const supabaseKey = 'sb_publishable_pWXzj8dY9rjsikiQGoPz9A_zJKyiYFi';
 
 // SOLUCIÓN: Cambiamos el nombre a 'clienteSupabase' para no chocar con la librería externa
 const clienteSupabase = window.supabase.createClient(supabaseUrl, supabaseKey);
